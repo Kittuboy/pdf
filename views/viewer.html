@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Document Viewer</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e8edf4;
+    }
+
+    .viewer-header {
+      height: 60px;
+      background: #041633;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      gap: 12px;
+    }
+
+    .viewer-header h2 {
+      font-size: 17px;
+    }
+
+    .viewer-header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="viewer-header">
+    <h2 id="viewerTitle">PDF Document</h2>
+    <a href="/">Back to Search</a>
+  </header>
+
+  <iframe id="pdfFrame" title="PDF Document Viewer"></iframe>
+
+  <script>
+    const id = window.location.pathname.split("/").pop();
+
+    async function openPdf() {
+      try {
+        const response = await fetch(`/api/pdfs/${id}/details`);
+
+        if (!response.ok) {
+          window.location.href = `/pdf/${id}`;
+          return;
+        }
+
+        const data = await response.json();
+
+        document.getElementById("viewerTitle").textContent =
+          data.pdf.title;
+
+        document.getElementById("pdfFrame").src =
+          `/api/pdfs/${id}/file`;
+
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    openPdf();
+  </script>
+
+</body>
+</html>

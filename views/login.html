@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | PDF Library</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-card">
+    <div class="brand-icon">PDF</div>
+
+    <h1>Admin Login</h1>
+    <p>Sign in to manage your document library.</p>
+
+    <form id="loginForm">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="admin@example.com" required>
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter password" required>
+
+      <button type="submit" id="loginBtn">Sign In</button>
+
+      <p id="loginMessage" class="message"></p>
+    </form>
+
+    <a href="/" class="back-link">← Back to Home</a>
+  </div>
+
+  <script src="/assets/js/login.js"></script>
+</body>
+</html>

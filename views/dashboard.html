@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | PDF Library</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="/" class="logo">PDF Library</a>
+
+    <div class="admin-actions">
+      <span id="adminName">Admin</span>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <div class="page-heading">
+      <div>
+        <h1>Document Management</h1>
+        <p>Upload and manage your PDF documents.</p>
+      </div>
+    </div>
+
+    <section class="upload-card">
+      <h2>Upload New PDF</h2>
+
+      <form id="uploadForm" enctype="multipart/form-data">
+
+        <label>PDF Title</label>
+        <input
+          type="text"
+          name="title"
+          placeholder="Enter document title"
+          required
+        >
+
+        <label>Description</label>
+        <textarea
+          name="description"
+          placeholder="Enter document description"
+        ></textarea>
+
+        <label>PDF Access Password</label>
+        <input
+          type="password"
+          name="password"
+          minlength="6"
+          placeholder="Set PDF password"
+          required
+        >
+
+        <label>Select PDF File</label>
+        <input
+          type="file"
+          name="pdf"
+          accept=".pdf,application/pdf"
+          required
+        >
+
+        <button type="submit" id="uploadBtn">
+          Upload Document
+        </button>
+
+        <p id="uploadMessage" class="message"></p>
+      </form>
+    </section>
+
+    <section class="documents-section">
+
+      <div class="section-heading">
+        <div>
+          <h2>Uploaded Documents</h2>
+          <p>All documents available in your library.</p>
+        </div>
+
+        <button id="refreshBtn" class="secondary-btn">
+          Refresh
+        </button>
+      </div>
+
+      <div id="pdfList" class="pdf-grid">
+        <p>Loading documents...</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="/assets/js/dashboard.js"></script>
+</body>
+</html>

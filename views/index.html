@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Library | Search Documents</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="/" class="logo">PDF Library</a>
+    <a href="/admin/login" class="admin-link">Admin Login</a>
+  </header>
+
+  <main class="home-container">
+
+    <section class="hero">
+      <span class="eyebrow">YOUR DOCUMENT LIBRARY</span>
+      <h1>Find the documents<br>you are looking for.</h1>
+      <p>Search your document library and access your PDFs securely.</p>
+
+      <form id="searchForm" class="search-box">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search PDF documents..."
+        >
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <section class="results-section">
+      <h2 id="resultsHeading">All Documents</h2>
+
+      <div id="searchResults" class="pdf-grid">
+        <p>Loading documents...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/assets/js/home.js"></script>
+</body>
+</html>
